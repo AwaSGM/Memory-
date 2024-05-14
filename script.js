@@ -1,7 +1,15 @@
-const cartes = document.querySelectorAll(".carte");
+/**
+ * 
+ */
+
+
+
+const cards = document.querySelectorAll(".card");
+
 let matched = 0;
 let cardOne, cardTwo;
 let disableDeck = false;
+
 function flipCard({target: clickedCard}) {
     if(cardOne !== clickedCard && !disableDeck) {
         clickedCard.classList.add("flip");
@@ -16,7 +24,9 @@ function flipCard({target: clickedCard}) {
     }
 }
 
-
+/**
+ * 
+ */
 
 
 function matchCards(img1, img2) {
@@ -27,13 +37,11 @@ function matchCards(img1, img2) {
                 return shuffleCard();
             }, 1000);
         }
-
         cardOne.removeEventListener("click", flipCard);
         cardTwo.removeEventListener("click", flipCard);
         cardOne = cardTwo = "";
         return disableDeck = false;
     }
-
     setTimeout(() => {
         cardOne.classList.add("shake");
         cardTwo.classList.add("shake");
@@ -45,29 +53,32 @@ function matchCards(img1, img2) {
         cardOne = cardTwo = "";
         disableDeck = false;
     }, 1200);
-
 }
 
 
-
-
+/**
+ * 
+ */
 function shuffleCard() {
     matched = 0;
     disableDeck = false;
     cardOne = cardTwo = "";
     let arr = [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
     arr.sort(() => Math.random() > 0.5 ? 1 : -1);
-    cartes.forEach((card, i) => {
-        carte.classList.remove("flip");
-        let imgTag = carte.querySelector(".Vue-Dos img");
+    cards.forEach((card, i) => {
+        card.classList.remove("flip");
+        let imgTag = card.querySelector(".back-view img");
         imgTag.src = `images/img-${arr[i]}.png`;
-        carte.addEventListener("click", flipCard);
+        card.addEventListener("click", flipCard);
     });
 }
 
 
+/**
+ * 
+ */
 shuffleCard();
     
-cartes.forEach(carte => {
-    carte.addEventListener("click", flipCard);
+cards.forEach(card => {
+    card.addEventListener("click", flipCard);
 });
