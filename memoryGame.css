@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: url('/Memory-/images_Memory/img-11.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 50px;
+}
+
+.wrapper {
+    margin: 40px 150px 40px 150px;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    height: 680px;
+}
+
+.cartes,
+.carte,
+.carte-Vue-Face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartes {
+    height: 400px;
+    width: 900px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+.carte {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: calc(100% / 2 - 100px);
+    width: calc(100% / 2 - 80px);
+    margin-left: -20px;
+    margin-top: 50px;
+}
+
+.carte.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.carte .carte-Vue-Face,
+.carte .carte-Vue-Dos {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 7px;
+    background: #fff;
+    pointer-events: none;
+    backface-visibility: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s linear;
+}
+
+.carte .carte-Vue-Face img,
+.carte .carte-Vue-Dos img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.carte .carte-Vue-Dos {
+    transform: rotateY(-180deg);
+}
+
+.carte.flip .carte-Vue-Dos {
+    transform: rotateY(0);
+}
+
+.carte.flip .carte-Vue-Face {
+    transform: rotateY(180deg);
+}
+
+.hidden {
+    display: none;
+}
+
+#winner-screen, #lose-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 2;
+}
+
+#winner-screen h2, #lose-screen h2 {
+    margin-bottom: 20px;
+}
+
+#winner-screen button, #lose-screen button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #ac00f0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#winner-screen button:hover, #lose-screen button:hover {
+    background: #ac00f0;
+}
+
+@media screen and (max-width: 700px) {
+    .cartes {
+        height: 350px;
+        width: 350px;
+    }
+
+    .carte .carte-Vue-Face img,
+    .carte .carte-Vue-Dos img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .cartes {
+        height: 300px;
+        width: 300px;
+    }
+
+    .carte .carte-Vue-Face img,
+    .carte .carte-Vue-Dos img {
+        max-width: 35px;
+        max-height: 35px;
+    }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: url('/Memory-/images_Memory/img-11.png') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 50px;
+}
+
+.wrapper {
+    margin: 20px auto;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    width: 90%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.cartes,
+.carte,
+.carte-Vue-Face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cartes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.carte {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: calc(100% / 2 - 20px);
+    width: calc(50% - 10px);
+    margin: 10px 0;
+}
+
+.carte.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+.carte .carte-Vue-Face,
+.carte .carte-Vue-Dos {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 7px;
+    background: #fff;
+    pointer-events: none;
+    backface-visibility: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s linear;
+}
+
+.carte .carte-Vue-Face img,
+.carte .carte-Vue-Dos img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.carte .carte-Vue-Dos {
+    transform: rotateY(-180deg);
+}
+
+.carte.flip .carte-Vue-Dos {
+    transform: rotateY(0);
+}
+
+.carte.flip .carte-Vue-Face {
+    transform: rotateY(180deg);
+}
+
+.hidden {
+    display: none;
+}
+
+#winner-screen, #lose-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 2;
+    width: 90%;
+    max-width: 300px;
+}
+
+#winner-screen h2, #lose-screen h2 {
+    margin-bottom: 20px;
+}
+
+#winner-screen button, #lose-screen button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #ac00f0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#winner-screen button:hover, #lose-screen button:hover {
+    background: #ac00f0;
+}
+
+@media screen and (max-width: 700px) {
+    .cartes {
+        justify-content: center;
+    }
+
+    .carte {
+        width: calc(50% - 10px);
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .cartes {
+        justify-content: center;
+    }
+
+    .carte {
+        width: calc(100% - 20px);
+        height: auto;
+        margin: 10px 0;
+    }
+
+    .carte .carte-Vue-Face img,
+    .carte .carte-Vue-Dos img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

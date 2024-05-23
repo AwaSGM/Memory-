@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Styles de base du corps */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: url('/Memory-/images_Memory/imgbackgrounexample.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Contenu principal */
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 50px;
+}
+
+/* Wrapper pour centrer le contenu */
+.wrapper {
+    padding: 25px;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles des cartes */
+.cartes,
+.carte,
+.carte-Vue-Face {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container des cartes */
+.cartes {
+    height: 400px;
+    width: 400px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Styles individuels des cartes */
+.carte {
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+}
+
+/* Animation de secousse pour les cartes */
+.carte.shake {
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-13px);
+    }
+    40% {
+        transform: translateX(13px);
+    }
+    60% {
+        transform: translateX(-8px);
+    }
+    80% {
+        transform: translateX(8px);
+    }
+}
+
+/* Vue face et dos des cartes */
+.carte .carte-Vue-Face,
+.carte .carte-Vue-Dos {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 7px;
+    background: #fff;
+    pointer-events: none;
+    backface-visibility: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s linear;
+}
+
+/* Vue dos de la carte */
+.carte .carte-Vue-Dos {
+    transform: rotateY(-180deg);
+}
+
+/* Effet de flip sur les cartes */
+.carte.flip .carte-Vue-Dos {
+    transform: rotateY(0);
+}
+
+.carte.flip .carte-Vue-Face {
+    transform: rotateY(180deg);
+}
+
+/* Masquer les éléments cachés */
+.hidden {
+    display: none;
+}
+
+/* Styles de l'écran de victoire et de défaite */
+#winner-screen, #lose-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 10px;
+    background: #F8F8F8;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 2;
+}
+
+#winner-screen h2, #lose-screen h2 {
+    margin-bottom: 20px;
+}
+
+/* Styles des boutons */
+#winner-screen button, #lose-screen button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #ac00f0;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#winner-screen button:hover, #lose-screen button:hover {
+    background: #ac00f0;
+}
+
+/* Styles pour les petits écrans */
+@media screen and (max-width: 700px) {
+    .cartes {
+        height: 350px;
+        width: 350px;
+    }
+
+    .carte .carte-Vue-Face img {
+        width: 17px;
+    }
+
+    .carte .carte-Vue-Dos img {
+        max-width: 40px;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .cartes {
+        height: 300px;
+        width: 300px;
+    }
+
+    .carte .carte-Vue-Face img {
+        width: 15px;
+    }
+
+    .carte .carte-Vue-Dos img {
+        max-width: 35px;
+    }
+}
+
+/* Styles des scores */
+.scores {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.scores span {
+    font-size: 18px;
+    font-weight: bold;
+}

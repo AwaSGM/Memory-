@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Meta tags -->
+    <meta charset="UTF-8">
+    <title>Memori'EZ</title>
+    <link rel="stylesheet" href="memoryGame.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fin des Meta tags -->
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="info">
+            <span id="level">Niveau : 1</span>
+            <span id="timer">Temps : 60s</span>
+        </div>
+
+        <ul class="cartes">
+            <!-- Flower Pair -->
+            <!-- Vous pouvez ajouter ici des cartes supplémentaires -->
+
+            <!-- Book Pair -->
+            <li class="carte">
+                <div class="carte-Vue-Face">
+                    <img src="/Memory-/images_Memory/img-11.png" alt="icon">
+                </div>
+                <div class="carte-Vue-Dos">
+                    <img src="/Memory-/images_Memory/img-5.png" alt="card-img">
+                </div>
+            </li>
+            <li class="carte">
+                <div class="carte-Vue-Face">
+                    <img src="/Memory-/images_Memory/Question_mark.png" alt="icon">
+                </div>
+                <div class="carte-Vue-Dos">
+                    <img src="/Memory-/images_Memory/img-5.png" alt="img">
+                </div>
+            </li>
+
+            <!-- Pair -->
+            <li class="carte">
+                <div class="carte-Vue-Face">
+                    <img src="/Memory-/images_Memory/Question_mark.png" alt="icon">
+                </div>
+                <div class="carte-Vue-Dos">
+                    <img src="/Memory-/images_Memory/img-6.png" alt="card-img">
+                </div>
+            </li>
+            <li class="carte">
+                <div class="carte-Vue-Face">
+                    <img src="/Memory-/images_Memory/Question_mark.png" alt="icon">
+                </div>
+                <div class="carte-Vue-Dos">
+                    <img src="/Memory-/images_Memory/img-6.png" alt="card-img">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Victoire -->
+    <div id="winner-screen" class="hidden">
+        <h2>Félicitations ! Vous avez gagné !</h2>
+        <button onclick="nextLevel()">Niveau Suivant</button>
+    </div>
+
+    <!--défaite -->
+    <div id="lose-screen" class="hidden">
+        <h2>Vous avez perdu ! Réessayer ?</h2>
+        <button onclick="replay()">Rejouer</button>
+    </div>
+
+    <!-- Musique de fond -->
+    <audio id="background-music" loop>
+        <source src="path_to_music/your_music_file.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Sons de victoire et défaite -->
+    <audio id="win-sound">
+        <source src="path_to_music/win.mp3" type="audio/mp3">
+    </audio>
+    <audio id="lose-sound">
+        <source src="path_to_music/lose.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
